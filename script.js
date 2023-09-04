@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
 const btnEnviar= document.getElementById("enviar");
-const respDiv = document.getElementById("respuesta");
 
 btnEnviar.addEventListener("click", function() {
 const nombre = document.getElementById("nombre").value;
@@ -12,7 +11,6 @@ const fechaNacimiento = document.getElementById("fechaNacimiento").value;
         fechaNacimiento: fechaNacimiento
     };
 
-
 fetch("https://jsonplaceholder.typicode.com/users", 
     {
     method:'POST',
@@ -23,7 +21,7 @@ fetch("https://jsonplaceholder.typicode.com/users",
 })
 .then(response => response.json())
 .then(data => {
-    respDiv.innerHTML = JSON.stringify(data, null, 2);
+    console.log('Respuesta del servidor:', data);
 })
 })
 })
